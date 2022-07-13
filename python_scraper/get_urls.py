@@ -39,13 +39,7 @@ def get_all_data(child_urls, price_list):
         for value in data_values:
             values.append(value.text)
 
-        whisky_data = {}
-
-        for category in categories:
-            for value in values:
-                whisky_data[category] = value
-                values.remove(value)
-                break
+        whisky_data = list(zip(categories, values))
 
         print(whisky_data)
         dict_list.append(whisky_data)
