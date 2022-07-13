@@ -32,8 +32,7 @@ def get_all_data(child_urls, price_list):
         whisky_title = soup.find('h1', class_='page-title')
         whisky_price_list = price_list
 
-        categories = [category.text for category in data_categories if str(category.text) not in str(non_categories)]
-        all_categories = ['Title', 'Price'] + categories
+        categories = ['Title', 'Price'] + [category.text for category in data_categories if str(category.text) not in str(non_categories)]
 
         values = [(whisky_title.text).strip(), whisky_price_list[i]]
         data_values = soup.find_all("dd", class_=None)
@@ -42,7 +41,7 @@ def get_all_data(child_urls, price_list):
 
         whisky_data = {}
 
-        for category in all_categories:
+        for category in categories:
             for value in values:
                 whisky_data[category] = value
                 values.remove(value)
