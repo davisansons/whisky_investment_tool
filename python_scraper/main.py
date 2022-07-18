@@ -1,4 +1,4 @@
-from get_urls import get_child_url, get_all_data, get_whisky_prices
+from get_urls import get_child_url, get_all_data, get_whisky_prices, get_whisky_titles
 
 
 def get_url():
@@ -11,4 +11,4 @@ def get_url():
 
 if __name__ == "__main__":
     url = get_url()
-    get_all_data(get_child_url(url), get_whisky_prices(url))
+    get_all_data(get_child_url(url), get_whisky_prices(url), get_whisky_titles(url))
